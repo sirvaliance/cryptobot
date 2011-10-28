@@ -85,7 +85,7 @@ class LogBot(irc.IRCClient):
         
         # Check to see if they're sending me a private message
         if channel == self.nickname:
-            msg = "It isn't nice to whisper!  Play nice with the group."
+            msg = "I appreciate the message, but I do nothing!"
             self.msg(user, msg)
             return
 
@@ -94,7 +94,7 @@ class LogBot(irc.IRCClient):
 
 
             # Add switch statment for commands
-            msg = "%s: I am a log bot" % user
+            msg = "%s: Hi, I do nothing but idle so far..." % user
             self.msg(channel, msg)
             #self.logger.log("<%s> %s" % (self.nickname, msg))
 
@@ -149,10 +149,10 @@ if __name__ == '__main__':
     log.startLogging(sys.stdout)
     
     # create factory protocol and application
-    f = LogBotFactory("testbotroom")
+    f = LogBotFactory("#cryptodotis")
 
     # connect factory to this host and port
-    reactor.connectTCP("irc.freenode.net", 6667, f)
+    reactor.connectTCP("irc.oftc.net", 6667, f)
 
     # run bot
     reactor.run()
